@@ -1,0 +1,79 @@
+---
+const projects = [
+  {
+    title: 'E-Commerce Platform',
+    description: 'Full-stack online store with cart, checkout, and admin dashboard. Built for performance and SEO.',
+    image: 'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp',
+    tags: ['React', 'Node', 'Tailwind'],
+    link: '#',
+    linkLabel: 'View project',
+  },
+  {
+    title: 'Dashboard App',
+    description: 'Analytics dashboard with real-time charts, filters, and export. Responsive and accessible.',
+    image: 'https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?w=600&auto=format&fit=crop&q=60',
+    tags: ['Vue', 'D3', 'DaisyUI'],
+    link: '#',
+    linkLabel: 'View project',
+  },
+  {
+    title: 'Portfolio Template',
+    description: 'Minimal portfolio template with dark mode, smooth scroll, and project showcase.',
+    image: 'https://plus.unsplash.com/premium_photo-1722729629224-4397a1ce8267?w=600&auto=format&fit=crop&q=60',
+    tags: ['Astro', 'DaisyUI', 'SSG'],
+    link: '#',
+    linkLabel: 'View project',
+  },
+];
+---
+<section id="projects" class="py-20 lg:py-28 bg-base-200">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Projects</h2>
+    <p class="text-center text-base-content/70 max-w-2xl mx-auto mb-12">
+      A selection of work I'm proud of. Replace with your own projects and links.
+    </p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {projects.map((project, i) => (
+        <>
+          <label for={`modal-project-${i}`} class="card bg-base-100 overflow-hidden hover:shadow-xl transition-shadow cursor-pointer border border-base-300">
+            <figure class="h-48 overflow-hidden">
+              <img src={project.image} alt={project.title} class="object-cover w-full h-full" />
+            </figure>
+            <div class="card-body">
+              <h3 class="card-title">{project.title}</h3>
+              <p class="text-base-content/70 text-sm line-clamp-2">{project.description}</p>
+              <div class="flex flex-wrap gap-2 my-2">
+                {project.tags.map((tag) => (
+                  <span class="badge badge-ghost badge-sm">{tag}</span>
+                ))}
+              </div>
+              <div class="card-actions justify-end mt-2">
+                <span class="btn btn-primary btn-sm">View details</span>
+              </div>
+            </div>
+          </label>
+          <input type="checkbox" id={`modal-project-${i}`} class="modal-toggle" />
+          <div role="dialog" aria-modal="true" aria-labelledby={`modal-title-${i}`} class="modal">
+            <div class="modal-box max-w-2xl max-h-[90vh] overflow-y-auto">
+              <figure class="rounded-lg overflow-hidden mb-4">
+                <img src={project.image} alt={project.title} class="w-full object-cover max-h-64" />
+              </figure>
+              <h3 id={`modal-title-${i}`} class="text-2xl font-bold mb-2">{project.title}</h3>
+              <p class="text-base-content/70 mb-4">{project.description}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag) => (
+                  <span class="badge badge-ghost">{tag}</span>
+                ))}
+              </div>
+              <div class="modal-action">
+                <a href={project.link} target="_blank" rel="noopener noreferrer" class="btn btn-primary">{project.linkLabel}</a>
+                <label for={`modal-project-${i}`} class="btn">Close</label>
+              </div>
+            </div>
+            <label class="modal-backdrop" for={`modal-project-${i}`}>Close</label>
+          </div>
+        </>
+      ))}
+    </div>
+  </div>
+</section>

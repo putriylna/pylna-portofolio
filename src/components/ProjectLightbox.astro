@@ -1,0 +1,38 @@
+---
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
+  linkLabel: string;
+}
+interface Props {
+  id: string;
+  project: Project;
+}
+const { id, project } = Astro.props;
+---
+<div id={id} class="modal" role="dialog" aria-modal="true" aria-labelledby={`${id}-title`}>
+  <div class="modal-box max-w-2xl max-h-[90vh] overflow-y-auto">
+    <figure class="rounded-lg overflow-hidden mb-4">
+      <img src={project.image} alt={project.title} class="w-full object-cover max-h-64" />
+    </figure>
+    <h3 id={`${id}-title`} class="text-2xl font-bold mb-2">{project.title}</h3>
+    <p class="text-base-content/70 mb-4">{project.description}</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      {project.tags.map((tag) => (
+        <span class="badge badge-ghost">{tag}</span>
+      ))}
+    </div>
+    <div class="modal-action">
+      <a href={project.link} target="_blank" rel="noopener noreferrer" class="btn btn-primary">{project.linkLabel}</a>
+      <form method="dialog">
+        <button type="button" class="btn" data-close-modal>Close</button>
+      </form>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button type="button" data-close-modal>close</button>
+  </form>
+</div>
