@@ -1,46 +1,48 @@
-# Astro Starter Kit: Basics
+# Portofolio Pribadi
 
-```sh
-npm create astro@latest -- --template basics
-```
+Situs portofolio ini dibuat dengan Astro dan di-host di Vercel.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Live Demo
 
-## 🚀 Project Structure
+- https://pylna-portofolio.vercel.app
 
-Inside of your Astro project, you'll see the following folders and files:
+## Deskripsi
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Ini adalah portofolio pribadi yang menampilkan:
+- Hero section
+- Navigasi responsif
+- Daftar projek dengan lightbox
+- Bagian keterampilan
+- Kontak
+- Footer
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Struktur Folder
 
-## 🧞 Commands
+- `src/pages/` - Halaman utama (index.astro)
+- `src/layouts/` - Layout umum
+- `src/components/` - Komponen UI (Navbar, Hero, Projects, Skills, Contact, Footer)
+- `src/assets/` - Asset seperti CSS
 
-All commands are run from the root of the project, from a terminal:
+## Teknologi
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Astro
+- HTML, CSS
+- JavaScript murni
 
-## 👀 Want to learn more?
+## Cara Menjalankan Lokal
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. `npm install`
+2. `npm run dev`
+3. Buka `http://localhost:3000`
+
+## Deploy
+
+Situs ini dapat dideploy ke Vercel.
+
+## Lisensi
+
+MIT
+
+---
+
+*README ini dibuat otomatis oleh GitHub Copilot AI.*
