@@ -1,0 +1,105 @@
+<div class="cursor-wrapper" id="wrapper">
+  <div id="fluid-cursor"></div>
+</div>
+
+<script>
+  const cursor = document.getElementById('fluid-cursor');
+  const wrapper = document.getElementById('wrapper');
+  
+  let mouse = { x: 0, y: 0 };
+  let pos = { x: 0, y: 0 };
+  let lastPos = { x: 0, y: 0 };
+  let hue = 200; // Mulai dari warna biru air
+  let timeout;
+  let tick = 0;
+
+  // Speed lebih rendah (0.08) membuat efek "berat" seperti di dalam air
+  const speed = 0.08; 
+  const stretchLimit = 1.5;
+
+  window.addEventListener('mousemove', (e) => {
+    wrapper.style.opacity = "1";
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      wrapper.style.opacity = "0";
+    }, 1200);
+  });
+
+  function animate() {
+    tick++;
+    
+    // Pergerakan yang sangat smooth
+    pos.x += (mouse.x - pos.x) * speed;
+    pos.y += (mouse.y - pos.y) * speed;
+
+    const deltaX = pos.x - lastPos.x;
+    const deltaY = pos.y - lastPos.y;
+    const velocity = Math.sqrt(deltaX**2 + deltaY**2);
+    const stretch = Math.min(1 + velocity / 60, stretchLimit);
+    const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+
+    // Warna Soft: Saturation diturunkan (60%) dan Lightness dinaikkan (80%)
+    hue = (hue + 0.5) % 360; 
+
+    if (cursor) {
+      // Bentuk Blob yang lebih fluktuatif (seperti air yang bergejolak)
+      const r1 = 50 + Math.sin(tick * 0.04) * 20;
+      const r2 = 50 + Math.cos(tick * 0.02) * 20;
+      cursor.style.borderRadius = `${r1}% ${100-r1}% ${r2}% ${100-r2}% / ${r2}% ${r1}% ${100-r1}% ${100-r2}%`;
+
+      cursor.style.transform = `
+        translate3d(${pos.x}px, ${pos.y}px, 0) 
+        rotate(${angle}deg) 
+        scale(${stretch}, ${1 / Math.max(stretch * 0.5, 1)})
+      `;
+      
+      const softColor = `hsl(${hue}, 60%, 80%)`; // Pastel/Soft color
+      cursor.style.background = `radial-gradient(circle at 30% 30%, ${softColor} 10%, transparent 80%)`;
+    }
+
+    lastPos.x = pos.x;
+    lastPos.y = pos.y;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+<style is:global>
+  html, body {
+    background-color: #050505;
+    margin: 0;
+    /* Kursor asli tetap ada */
+  }
+
+  .cursor-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999998;
+    
+    /* EFEK AIR: Blur sangat tinggi dikombinasikan dengan Contrast tinggi */
+    /* Ini menciptakan ilusi zat cair yang menyatu (Gooey Effect) */
+    filter: blur(45px) contrast(1.8);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  #fluid-cursor {
+    position: absolute;
+    top: -75px; 
+    left: -75px;
+    width: 150px;
+    height: 150px;
+    will-change: transform, border-radius;
+    /* Mix-blend-mode overlay atau screen untuk kesan air yang bening */
+    mix-blend-mode: screen; 
+    opacity: 0.6; /* Lebih transparan agar lebih soft */
+  }
+</style>

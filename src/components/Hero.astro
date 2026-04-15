@@ -1,121 +1,260 @@
-<section id="home" class="hero min-h-screen bg-base-200 m-0">
-  <div class="hero-content flex-col lg:flex-row-reverse gap-8 lg:gap-16">
-    <div class="avatar relative flex items-center justify-center">
-      <div class="absolute w-60 h-60 lg:w-80 lg:h-80 animate-spin-slow">
-        <svg viewBox="0 0 100 100" class="w-full h-full">
-          <defs>
-            <path
-              id="circlePath"
-              d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-            ></path>
-          </defs>
-          <text
-            class="fill-primary font-bold uppercase tracking-[0.2em]"
-            style="font-size: 8.5px;"
+---
+import profileImage from "../assets/profile.jpg";
+---
+
+<section
+  id="home"
+  class="hero min-h-screen m-0 p-0 relative overflow-hidden flex items-center justify-center"
+  style="background-color: #FAF9F6; background-image: radial-gradient(#d1d1d1 1px, transparent 1px); background-size: 25px 25px;"
+>
+  <div class="absolute inset-0 pointer-events-none">
+    <div
+      class="absolute top-[15%] left-[5%] w-10 h-10 bg-[#FFADAD] border-2 border-black rounded-full opacity-30 animate-float shadow-[3px_3px_0px_0px_black]"
+    >
+    </div>
+    <div
+      class="absolute bottom-[20%] right-[10%] w-12 h-12 bg-[#B8E2F2] border-2 border-black rotate-12 opacity-30 animate-float-delayed shadow-[3px_3px_0px_0px_black]"
+    >
+    </div>
+  </div>
+
+  <div
+    class="absolute top-0 left-[25%] lg:left-[30%] w-[3px] h-16 bg-black z-20 hidden md:block"
+  >
+    <div class="absolute bottom-0 -left-1 w-3 h-3 bg-black rounded-full"></div>
+  </div>
+
+  <div
+    class="absolute top-0 right-[25%] lg:right-[30%] w-[3px] h-16 bg-black z-20 hidden md:block"
+  >
+    <div class="absolute bottom-0 -left-1 w-3 h-3 bg-black rounded-full"></div>
+  </div>
+
+  <div
+    class="hero-content flex-col lg:flex-row-reverse gap-10 bg-white border-[3px] border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] p-8 md:p-12 max-w-4xl rounded-none relative z-10 mt-4"
+  >
+    <div class="avatar relative flex items-center justify-center p-8">
+      <div
+        class="absolute inset-0 border-2 border-dashed border-gray-200 pointer-events-none overflow-hidden"
+      >
+        <div
+          class="absolute top-0 w-full overflow-hidden h-6 flex items-center"
+        >
+          <div
+            class="animate-marquee-x whitespace-nowrap text-[9px] font-black uppercase tracking-widest text-gray-400"
           >
-            <textPath href="#circlePath">
-              FRONTEND DEVELOPER AND DESIGNER • FRONTEND DEVELOPER AND DESIGNER
-              • FRONTEND DEVELOPER AND DESIGNER •
-            </textPath>
-          </text>
-        </svg>
+            • FRONTEND DEVELOPER • FRONTEND DEVELOPER • FRONTEND DEVELOPER •
+          </div>
+        </div>
+        <div
+          class="absolute bottom-0 w-full overflow-hidden h-6 flex items-center"
+        >
+          <div
+            class="animate-marquee-x-reverse whitespace-nowrap text-[9px] font-black uppercase tracking-widest text-gray-400"
+          >
+            • FRONTEND DEVELOPER • FRONTEND DEVELOPER • FRONTEND DEVELOPER •
+          </div>
+        </div>
+        <div
+          class="absolute right-0 top-0 h-full overflow-hidden w-6 flex items-center [writing-mode:vertical-rl]"
+        >
+          <div
+            class="animate-marquee-y whitespace-nowrap text-[9px] font-black uppercase tracking-widest text-gray-400"
+          >
+            • FRONTEND DEVELOPER • FRONTEND DEVELOPER • FRONTEND DEVELOPER •
+          </div>
+        </div>
+        <div
+          class="absolute left-0 top-0 h-full overflow-hidden w-6 flex items-center [writing-mode:vertical-rl]"
+        >
+          <div
+            class="animate-marquee-y-reverse whitespace-nowrap text-[9px] font-black uppercase tracking-widest text-gray-400"
+          >
+            • FRONTEND DEVELOPER AND DESIGNER • FRONTEND DEVELOPER AND DESIGNER
+            • FRONTEND DEVELOPER AND DESIGNER •
+          </div>
+        </div>
       </div>
 
       <div
-        class="w-44 h-44 lg:w-56 lg:h-56 rounded-full ring-4 ring-primary/20 shadow-2xl overflow-hidden bg-white flex items-center justify-center relative z-10"
+        class="w-40 h-40 lg:w-48 lg:h-48 bg-[#FDE2E4] border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center relative z-10 rounded-none transform rotate-2 overflow-hidden"
       >
-        <img
-          src="https://nailong-dino.com/wp-content/uploads/2025/08/Nailong-Dino-Logo.png"
-          alt="Putri Yuliana"
-          class="w-full h-full object-contain scale-[1.8] origin-center -translate-y-2"
-        />
+        <div
+          class="w-[90%] h-[90%] border-2 border-black overflow-hidden bg-white"
+        >
+          <img
+            src={profileImage.src}
+            alt="Putri Yuliana"
+            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          />
+        </div>
       </div>
     </div>
-    <div class="text-center lg:text-left max-w-2xl">
-      <p class="text-base-content/70 text-sm uppercase tracking-widest mb-2">
-        Hello, I'm
-      </p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">Putri Yuliana</h1>
-      <p class="hero-tagline text-xl text-primary font-semibold mt-2">
+
+    <div class="text-center lg:text-left flex-1">
+      <div
+        class="inline-block bg-[#E2ECE9] border-2 border-black px-3 py-0.5 mb-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+      >
+        <p class="text-[10px] font-black text-black uppercase tracking-widest">
+          Hello, I'm
+        </p>
+      </div>
+
+      <h1
+        class="text-4xl md:text-6xl font-black text-black mb-1 tracking-tight"
+      >
+        Putri Yuliana
+      </h1>
+
+      <p class="text-lg text-[#FFADAD] font-bold mb-4 uppercase">
         Frontend Developer & Designer
       </p>
 
-      <div class="flex flex-wrap gap-2 justify-center lg:justify-start my-4">
-        <span class="service-badge badge badge-primary badge-outline badge-lg"
-          >Web Design</span
+      <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
+        <span
+          class="bg-[#DBE7E4] border-2 border-black px-3 py-0.5 text-[10px] font-black"
+          >WEB DESIGN</span
         >
-        <span class="service-badge badge badge-secondary badge-outline badge-lg"
-          >Frontend</span
+        <span
+          class="bg-[#F0E4D7] border-2 border-black px-3 py-0.5 text-[10px] font-black"
+          >FRONTEND</span
         >
-        <span class="service-badge badge badge-accent badge-outline badge-lg"
+        <span
+          class="bg-[#E2F0CB] border-2 border-black px-3 py-0.5 text-[10px] font-black"
           >UI/UX</span
         >
       </div>
 
-      <p class="py-4 text-base-content/80">
-        I build fast, accessible websites and apps. Passionate about clean code,
-        UX, and turning ideas into reality.
+      <p
+        class="py-3 text-sm font-semibold text-gray-700 max-w-sm mx-auto lg:mx-0 leading-relaxed border-l-4 border-[#FFADAD] pl-4 mb-8"
+      >
+        I build fast, accessible websites. Passionate about <span
+          class="bg-[#B8E2F2] px-1 border border-black">clean code</span
+        > and UX.
       </p>
 
-      <div
-        class="hero-cta flex flex-wrap gap-4 justify-center lg:justify-start"
-      >
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+        <a
+          href="#projects"
+          class="px-8 py-3 text-xs font-black uppercase bg-black text-white hover:bg-[#FFADAD] hover:text-black transition-all border-2 border-black shadow-[5px_5px_0px_0px_#FFADAD] active:translate-x-1 active:translate-y-1 active:shadow-none"
+        >
+          Projects
+        </a>
+        <a
+          href="#contact"
+          class="px-8 py-3 text-xs font-black uppercase bg-white border-2 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+        >
+          Contact
+        </a>
       </div>
 
-      <div class="flex flex-wrap gap-4 justify-center lg:justify-start mt-6">
-        <a
-          href="#"
-          class="hero-skill-icon btn btn-ghost btn-circle btn-sm"
-          aria-label="Figma"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            ><path
-              d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148v3.019h4.588c2.476 0 4.49-2.014 4.49-4.49s-2.014-4.49-4.49-4.49H8.148v5.961H4.49C2.014 9.481 0 11.495 0 13.971s2.014 4.49 4.49 4.49h4.588v5.961h3.657v-5.961h4.588c2.476 0 4.49-2.014 4.49-4.49s-2.014-4.49-4.49-4.49zm-4.588-2.942H4.49C2.014 5.039 0 7.053 0 9.529s2.014 4.49 4.49 4.49h3.657V5.039zm-3.657 9.42H4.49c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h.588v-6.038zm9.176 0h-4.588v2.549h4.588c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019z"
-            ></path></svg
-          >
-        </a>
-        <a
-          href="https://github.com/putriylna"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hero-skill-icon btn btn-ghost btn-circle btn-sm"
-          aria-label="GitHub"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path
-              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-            ></path>
-          </svg>
-        </a>
-        <a
-          href="#"
-          class="hero-skill-icon btn btn-ghost btn-circle btn-sm"
-          aria-label="Code"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"></path></svg
-          >
-        </a>
-      </div>
+<div class="flex gap-3 mt-10 justify-center lg:justify-start">
+  <a
+    href="https://github.com/putriylna"
+    target="_blank"
+    class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center hover:bg-[#B8E2F2] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-y-1 active:shadow-none"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/putriylnarha/" 
+    target="_blank"
+    class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center hover:bg-[#B8E2F2] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-y-1 active:shadow-none"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+  </a>
+
+  <a
+    href="https://instagram.com/pylnarha"
+    target="_blank"
+    class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center hover:bg-[#B8E2F2] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-y-1 active:shadow-none"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+
+  <a
+    href="yulianarahma2008@gmail.com"
+    class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center hover:bg-[#B8E2F2] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-y-1 active:shadow-none"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099l3.83-3.104 5.612 8.138h-18.845l5.579-8.133zm9.212-1.259l4.612-3.738v9.442l-4.612-5.704z"/></svg>
+  </a>
+</div>
     </div>
   </div>
 </section>
+
+<style>
+  /* --- Animasi Marquee (Teks Berjalan di Sisi Kotak) --- */
+  @keyframes marquee-x {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes marquee-x-reverse {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes marquee-y {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
+    }
+  }
+  @keyframes marquee-y-reverse {
+    from {
+      transform: translateY(-50%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .animate-marquee-x {
+    animation: marquee-x 15s linear infinite;
+  }
+  .animate-marquee-x-reverse {
+    animation: marquee-x-reverse 15s linear infinite;
+  }
+  .animate-marquee-y {
+    animation: marquee-y 15s linear infinite;
+  }
+  .animate-marquee-y-reverse {
+    animation: marquee-y-reverse 15s linear infinite;
+  }
+
+  /* --- Animasi Melayang (Background) --- */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(5deg);
+    }
+  }
+  @keyframes float-delayed {
+    0%,
+    100% {
+      transform: translateY(0) rotate(12deg);
+    }
+    50% {
+      transform: translateY(-25px) rotate(-5deg);
+    }
+  }
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float-delayed 7s ease-in-out infinite;
+  }
+</style>
